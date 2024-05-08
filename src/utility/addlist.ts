@@ -1,3 +1,5 @@
+import { removeList } from "./removelist";
+
 export function newList() {
   const listItem = document.createElement("li");
   const listeItemCont = document.createElement("div");
@@ -18,6 +20,7 @@ export function newList() {
     listeItemCont.appendChild(listItem);
     listeItemCont.appendChild(removeBtn);
     listCont?.appendChild(listeItemCont);
+    removeBtn?.addEventListener("click", removeList);
   }
 
   (document.querySelector("#list-input") as HTMLInputElement).value = "";
