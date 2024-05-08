@@ -1,0 +1,82 @@
+html,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+}
+
+.menu {
+  width: 30%;
+  height: 100%;
+  background-color: rgb(161, 201, 236);
+}
+
+.menu h1,
+.menu h2 {
+  text-align: center;
+  color: white;
+}
+
+.menu h1 {
+  font-size: 4vw;
+}
+
+.menu h2 {
+  font-size: 2vw;
+}
+
+.list-item {
+  font-size: 1.5vw;
+  color: white;
+}
+
+.list-container {
+  margin: 4vh 1vh;
+  padding: 1vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu-container {
+  padding-top: 30vh;
+}
+
+.list-item {
+  background-color: rgb(161, 201, 236);
+  border: none;
+}
+
+#list-input {
+  border-bottom: 2px solid white;
+}
+.list-items-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5vh;
+}
+
+.addbtn,
+.removebtn {
+  width: 2vw;
+  height: 2vw;
+  background-color: rgb(161, 201, 236);
+}
+.addbtn {
+  background-image: url(/public/plus.svg);
+}
+
+.removebtn {
+  background-image: url(/public/trash-can-outline.svg);
+}
+
+#app {
+  width: 70%;
+  height: 100%;
+  background-color: aliceblue;
+}
