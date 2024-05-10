@@ -14,9 +14,9 @@ removeBtn?.addEventListener("click", removeList);
 listItem?.addEventListener("click", selectList);
 addTaskBtn?.addEventListener("click", addItems);
 
-document.body.addEventListener("click", (e: any) => {
-  let clickInside = popup?.contains(e.target);
-  let insideButton = addTaskBtn?.contains(e.target);
+document.body.addEventListener("click", (e: Event) => {
+  let clickInside = popup?.contains(e.target as HTMLElement);
+  let insideButton = addTaskBtn?.contains(e.target as HTMLElement);
   if (!clickInside && !insideButton) {
     popup?.classList.remove("show");
   }

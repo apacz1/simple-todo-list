@@ -1,7 +1,7 @@
 import { removeList } from "./removelist";
 
 export function newList() {
-  const listItem = document.createElement("li");
+  const listItem = document.createElement("ul");
   const listeItemCont = document.createElement("div");
   const removeBtn = document.createElement("button");
   let listValue = (document.querySelector("#list-input") as HTMLInputElement)
