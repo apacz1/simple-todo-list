@@ -18,19 +18,44 @@
       <div class="menu-container">
         <h2>My Lists:</h2>
         <div class="list-container">
-          <div class="list-items-container">
-            <input
-              type="text"
-              class="list-item"
-              id="list-input"
-              placeholder="new list name..."
-            />
+          <div class="input-items-container">
+            <input type="text" id="list-input" placeholder="new list name..." />
             <button class="addbtn"></button>
+          </div>
+          <div class="list-items-container">
+            <ul class="list-item">
+              Default
+            </ul>
+            <button class="removebtn"></button>
           </div>
         </div>
       </div>
     </div>
-    <div id="app"></div>
+    <div id="app">
+      <div class="items-container"></div>
+      <button class="addtask">
+        <i class="plus-icon"></i>
+        Add task
+      </button>
+    </div>
+    <div class="popup">
+      <div class="title-contaier">
+        <label for="item-title">Enter task title:</label>
+        <input type="text" name="text" id="title-input" />
+      </div>
+      <div class="date-container">
+        <label for="item-date">Enter task due date:</label>
+        <input type="date" name="date" id="date-input" />
+      </div>
+      <div class="priority-container">
+        <label for="item-priority">Check if task is priority:</label>
+        <input type="checkbox" name="checkbox" id="priority-input" />
+      </div>
+      <div class="buttons-container">
+        <button class="savebtn">Save</button>
+        <button class="cancelbtn">Cancel</button>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
