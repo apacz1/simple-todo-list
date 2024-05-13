@@ -125,11 +125,40 @@ body {
   height: 30%;
   background-color: white;
   border: 3px solid rgb(161, 201, 236);
+  border-radius: 2%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   visibility: hidden;
+  font-size: 1.5rem;
+}
+
+.inputs-container {
+  height: 80%;
   display: flex;
+}
+
+.title-container,
+.date-container,
+.priority-container {
+  flex: 1 1 auto;
+  padding: 5%;
+}
+
+.popup input,
+.popup select {
+  font-size: 2vh;
+  height: 2.5vh;
+  width: 80%;
+}
+
+.popup select {
+  font-size: 2vh;
+}
+
+.buttons-container {
+  text-align: right;
+  padding-right: 5%;
 }
 
 .show {

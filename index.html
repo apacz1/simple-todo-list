@@ -39,17 +39,29 @@
       </button>
     </div>
     <div class="popup">
-      <div class="title-contaier">
-        <label for="item-title">Enter task title:</label>
-        <input type="text" name="text" id="title-input" />
-      </div>
-      <div class="date-container">
-        <label for="item-date">Enter task due date:</label>
-        <input type="date" name="date" id="date-input" />
-      </div>
-      <div class="priority-container">
-        <label for="item-priority">Check if task is priority:</label>
-        <input type="checkbox" name="checkbox" id="priority-input" />
+      <div class="inputs-container">
+        <div class="title-container">
+          <label for="item-title">Enter task title:</label>
+          <input
+            type="text"
+            name="text"
+            minlength="3"
+            maxlength="16"
+            id="title-input"
+            required
+          />
+        </div>
+        <div class="date-container">
+          <label for="item-date">Enter task due date:</label>
+          <input type="date" name="date" id="date-input" required />
+        </div>
+        <div class="priority-container">
+          <label for="item-priority">Choose task priority:</label>
+          <select id="item-priority" name="priorities">
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
       </div>
       <div class="buttons-container">
         <button class="savebtn">Save</button>

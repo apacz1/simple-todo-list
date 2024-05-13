@@ -1,4 +1,7 @@
 import { removeList } from "./removelist";
+import { todoList } from "./createitem";
+
+export const listArr: todoList[] = [{ listName: "Default", data: [] }];
 
 export function newList() {
   const listItem = document.createElement("ul");
@@ -16,6 +19,7 @@ export function newList() {
     alert("List name needs to be between 3 and 16 characters.");
   } else {
     listItem.textContent = listValue;
+    listArr.push({ listName: listValue, data: [] });
 
     listeItemCont.appendChild(listItem);
     listeItemCont.appendChild(removeBtn);
@@ -24,4 +28,5 @@ export function newList() {
   }
 
   (document.querySelector("#list-input") as HTMLInputElement).value = "";
+  console.log(listArr);
 }
