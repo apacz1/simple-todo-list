@@ -1,6 +1,6 @@
 export type Item = {
   title?: string;
-  date?: Date;
+  date?: string;
   priority?: string;
 };
 
