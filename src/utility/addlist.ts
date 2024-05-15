@@ -5,6 +5,7 @@ import { addItems } from "./additems";
 
 export const listArr: todoList[] = [{ listName: "Default", data: [] }];
 export let currentList = { index: 0 };
+const tasksContainer = document.querySelector(".tasks-container");
 
 listArr.forEach((element) => {
   const listItem = document.createElement("ul");
@@ -23,6 +24,7 @@ listArr.forEach((element) => {
   listCont?.appendChild(listeItemCont);
   listItem.addEventListener("click", selectList);
   removeBtn?.addEventListener("click", removeList);
+  tasksContainer!.innerHTML = "";
 });
 
 export function newList() {
@@ -33,19 +35,20 @@ export function newList() {
     .value;
   const listCont = document.querySelector(".list-container");
   const app = document.querySelector("#app");
-  const addTaskBtn = document.querySelector(".addtask");
 
   listItem.className = "list-item";
   listeItemCont.className = "list-items-container";
   removeBtn.className = "removebtn";
 
   if (!listArr.length) {
-    app!.innerHTML = `<div class="items-container"></div>
-      <button class="addtask">
+    app!.innerHTML = `<button class="addtask">
         <i class="plus-icon"></i>
         Add task
-      </button>`;
+      </button>
+      <div class="tasks-container"></div>`;
     app?.classList.remove("flex");
+    const addTaskBtn = document.querySelector(".addtask");
+    addTaskBtn?.addEventListener("click", addItems);
   }
 
   if (listValue.length < 3 || listValue.length > 16) {
@@ -54,15 +57,15 @@ export function newList() {
     listItem.textContent = listValue;
     listArr.push({ listName: listValue, data: [] });
     currentList.index = listArr.length - 1;
-    console.log(listArr);
 
     listeItemCont.appendChild(listItem);
     listeItemCont.appendChild(removeBtn);
     listCont?.appendChild(listeItemCont);
     listeItemCont.addEventListener("click", selectList);
     removeBtn?.addEventListener("click", removeList);
-    addTaskBtn?.addEventListener("click", addItems);
   }
+
+  tasksContainer!.innerHTML = "";
 
   (document.querySelector("#list-input") as HTMLInputElement).value = "";
 }
