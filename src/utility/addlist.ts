@@ -2,6 +2,8 @@ import { removeList } from "./removelist";
 import { todoList } from "./createitem";
 import { selectList } from "./selectlist";
 import { addItems } from "./additems";
+import { clickOutside } from "../main";
+import { removeActive } from "../main";
 
 export const listArr: todoList[] = [{ listName: "Default", data: [] }];
 export let currentList = { index: 0 };
@@ -24,6 +26,11 @@ listArr.forEach((element) => {
   listCont?.appendChild(listeItemCont);
   listItem.addEventListener("click", selectList);
   removeBtn?.addEventListener("click", removeList);
+
+  listeItemCont.classList.add("active");
+  listItem.classList.add("active");
+  removeBtn.classList.add("active");
+
   tasksContainer!.innerHTML = "";
 });
 
@@ -40,6 +47,8 @@ export function newList() {
   listeItemCont.className = "list-items-container";
   removeBtn.className = "removebtn";
 
+  removeActive();
+
   if (!listArr.length) {
     app!.innerHTML = `<button class="addtask">
         <i class="plus-icon"></i>
@@ -49,10 +58,12 @@ export function newList() {
     app?.classList.remove("flex");
     const addTaskBtn = document.querySelector(".addtask");
     addTaskBtn?.addEventListener("click", addItems);
+    clickOutside();
   }
 
   if (listValue.length < 3 || listValue.length > 16) {
     alert("List name needs to be between 3 and 16 characters.");
+    return;
   } else {
     listItem.textContent = listValue;
     listArr.push({ listName: listValue, data: [] });
@@ -61,8 +72,12 @@ export function newList() {
     listeItemCont.appendChild(listItem);
     listeItemCont.appendChild(removeBtn);
     listCont?.appendChild(listeItemCont);
-    listeItemCont.addEventListener("click", selectList);
+    listItem.addEventListener("click", selectList);
     removeBtn?.addEventListener("click", removeList);
+
+    listeItemCont.classList.add("active");
+    listItem.classList.add("active");
+    removeBtn.classList.add("active");
   }
 
   tasksContainer!.innerHTML = "";

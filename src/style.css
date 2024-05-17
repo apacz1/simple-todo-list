@@ -17,7 +17,8 @@ body {
 }
 
 .menu h1,
-.menu h2 {
+.menu h2,
+.task-legend-container {
   text-align: center;
   color: white;
 }
@@ -27,16 +28,22 @@ body {
   font-size: 4vw;
 }
 
-.menu h2 {
+.menu h2,
+.task-legend-container {
   font-size: 2vw;
 }
 
-.list-item {
+.list-item,
+.task-container {
   font-size: 1.5vw;
   color: white;
   background-color: rgb(161, 201, 236);
   border: none;
   cursor: pointer;
+}
+
+.task-container {
+  cursor: auto;
 }
 
 .list-item:hover {
@@ -49,11 +56,6 @@ body {
 .list-items-container:hover .addbtn {
   color: rgb(161, 201, 236);
   background-color: white;
-}
-
-.list-items-container:hover {
-  border: 2px solid white;
-  margin: -2px;
 }
 
 .list-container {
@@ -94,10 +96,12 @@ body {
 }
 .addbtn {
   background-image: url(/public/plus.svg);
+  background-repeat: no-repeat;
 }
 
 .removebtn {
   background-image: url(/public/trash-can-outline.svg);
+  background-repeat: no-repeat;
 }
 
 #app {
@@ -119,7 +123,13 @@ body {
   font-size: 2vh;
   cursor: pointer;
   padding: 0.5vh;
-  margin: 10% 0 5% 80%;
+}
+
+.taskbtn-wrapper {
+  display: flex;
+  width: 80%;
+  margin: 5% 10%;
+  justify-content: flex-end;
 }
 
 .plus-icon {
@@ -192,4 +202,66 @@ body {
 
 button {
   cursor: pointer;
+}
+
+.tasks-container {
+  width: 80%;
+  margin: 0 10%;
+  background-color: rgb(161, 201, 236);
+}
+
+.task-legend-container,
+.task-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px solid aliceblue;
+}
+
+.task-container .removebtn {
+  width: 1vw;
+  height: 1vh;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.title-legend,
+.title-text {
+  flex: 2;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.date-legend,
+.prio-legend,
+.date-text {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.prio-text,
+.task-container .removebtn {
+  flex: 0.5;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.title-legend::after,
+.date-legend::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 2px;
+  background-color: aliceblue;
+}
+
+.active {
+  background-color: rgb(96, 128, 156);
 }

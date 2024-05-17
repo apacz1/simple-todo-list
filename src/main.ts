@@ -18,10 +18,32 @@ addTaskBtn?.addEventListener("click", addItems);
 cancelBtn?.addEventListener("click", cancelItems);
 saveBtn?.addEventListener("click", saveItems);
 
-document.body.addEventListener("click", (e: Event) => {
-  let clickInside = popup?.contains(e.target as HTMLElement);
-  let insideButton = addTaskBtn?.contains(e.target as HTMLElement);
-  if (!clickInside && !insideButton) {
-    popup?.classList.remove("show");
-  }
-});
+export const clickOutside = () =>
+  document.body.addEventListener("click", (e: Event) => {
+    let clickInside = popup?.contains(e.target as HTMLElement);
+    let insideButton = addTaskBtn?.contains(e.target as HTMLElement);
+    if (!clickInside && !insideButton) {
+      popup?.classList.remove("show");
+    }
+  });
+clickOutside();
+
+export const removeActive = () => {
+  const existingListItems = document.querySelectorAll(".list-item");
+  const existingRemoveBtns = document.querySelectorAll(".removebtn");
+  const existingListsContainers = document.querySelectorAll(
+    ".list-items-container"
+  );
+
+  existingListItems.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  existingRemoveBtns.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  existingListsContainers.forEach((item) => {
+    item.classList.remove("active");
+  });
+};
