@@ -1,5 +1,6 @@
 import { currentList, listArr } from "./addlist";
 import { clickOutside } from "../main";
+import { removeItem } from "./removeitems";
 
 export type Item = {
   title?: string;
@@ -53,11 +54,14 @@ export function createTask(arr: Array<todoList>) {
         dateText.textContent = y.date!;
         prioText.textContent = y.priority!;
 
+        removeBtn.addEventListener("click", removeItem);
+
         taskContainer!.appendChild(titleText);
         taskContainer!.appendChild(dateText);
         taskContainer!.appendChild(prioText);
         taskContainer!.appendChild(removeBtn);
         tasksContainer?.appendChild(taskContainer);
+
         clickOutside();
       });
     }
