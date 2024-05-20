@@ -42,7 +42,7 @@ export function createTask(arr: Array<todoList>) {
         const titleText = document.createElement("div");
         const dateText = document.createElement("div");
         const prioText = document.createElement("div");
-        const removeBtn = document.createElement("div");
+        const removeBtn = document.createElement("button");
 
         titleText.className = "title-text";
         dateText.className = "date-text";
